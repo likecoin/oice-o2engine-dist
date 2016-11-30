@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<button type="button" class="testButton">a</button>
+<button type="button" class="testButton">b</button>
+<button type="button" class="testButton">c</button>
+<button type="button" id="close">click me to close</button>
+
+<div custom-src="0"></div>
+
+<script>
+	Overlay(function (callback, args) {
+		this.css({
+			position : 'fixed',
+			width : 300,
+			height : 300,
+			top : '',
+			bottom : 0,
+			backgroundColor : 'rgba(0,0,255,0.5)'
+		})
+
+		$('.testButton').on('click',function(){
+			// callbackで値をtagに渡す
+			// これで[->]内のタグが実行されます。
+			// result は true / false、実行成功したかどうかを返す
+			// callbackがすでに実行してたらfalse (例えば連続くリックの場合)
+			var result = callback($(this).html(),'text');
+		});
+
+		$('#close').one('click',function(){
+			$('.testButton').off();
+
+			// non-blockingモードの場合はcallback()だけでhtmlは閉じます。
+			callback('close');
+		});
+
+		console.log(args);
+
+		$('[custom-src]').each(function(){
+			var src = $(this).attr('custom-src');
+			var $this = $(this)
+			ResourceLoader.loadImage(src).done(function(image){
+				$this.replaceWith(image);
+			});
+		});
+	});
+</script>
+</body>
+</html>
