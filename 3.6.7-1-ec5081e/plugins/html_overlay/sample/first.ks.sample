@@ -1,0 +1,17 @@
+[o2_loadplugin module="html_overlay/plugin.js"]
+
+; 閉じるまでタグは進行しない
+[showoverlay filename=sample.html event=element (answer,answer2)->]
+	[switch val=$answer ->]
+		[case val=close ->]
+			[close]
+		[/]
+		[default ->]
+			[ch text=$answer][r]
+			[ch text=$answer2]
+		[/]
+	[/switch]
+[/showoverlay]
+
+; 閉じなくてもそのまま進む
+[showoverlay filename=sample.html event=element]

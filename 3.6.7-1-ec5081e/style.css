@@ -1,0 +1,215 @@
+body{
+	background-color: #eee;
+	margin: 0;
+
+	-ms-touch-action: none;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+#main-wrapper{
+	position: absolute;
+	overflow: visible;
+}
+
+#main-wrapper canvas{
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 1;
+}
+
+#play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+	width: 256px;
+	height: 256px;
+	margin-left: -128px;
+	margin-top: -128px;
+	background-image: url("resources/play.png");
+	cursor: pointer;
+	z-index: 999;
+}
+
+#background-image {
+  position: absolute;
+  top: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	/*z-index: 800;*/
+	/*without this command no pointer cursor*/
+}
+
+div#play-button:hover {
+	background-position: -100% 0%;
+}
+
+/*#play-button.hover {
+	background-image: url("resources/play_hover.png");
+}*/
+
+.video-wrapper{
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+}
+
+.video-wrapper video{
+	position: absolute;
+}
+
+#loading{
+	margin-left: -25px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	margin-top: -25px;
+	left: 50%;
+	background-color: rgba(0,0,0,0.9);
+	text-align: center;
+	vertical-align: middle;
+
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 0;
+}
+#loading img{
+	padding: 17px;
+}
+
+#error{
+	position: absolute;
+	width:300px;
+	left:50%;
+	top:50%;
+	margin-left: -150px;
+	margin-top: -100px;
+	background-color: rgba(0,0,0,0.9);
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+	color: #fff;
+	text-align: center;
+
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.black-overlay{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: rgba(0,0,0,0.3);
+	z-index: 30;
+}
+
+#login-box iframe{
+	border: 0;
+	width: 100%;
+	height: 100%;
+	max-width: 500px;
+	max-height: 500px;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	top: 0;
+}
+
+.hidden{
+	display: none;
+}
+
+@keyframes progress-animation {
+	0%   { background-color: #E64546; }
+	33%  { background-color: #16971F; }
+	66%  { background-color: #008DE5; }
+	100% { background-color: #E64546; }
+}
+
+@keyframes progress-bar-animation {
+	0%   { border-color: #E64546; }
+	33%  { border-color: #16971F; }
+	66%  { border-color: #008DE5; }
+	100% { border-color: #E64546; }
+}
+
+#progress-bar-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#progress-bar {
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 47.5%;
+	margin-left: 10%;
+	padding: 4px;
+
+	width: 80%;
+	height: 5%;
+
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 30px;
+
+	animation-name: progress-bar-animation;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+#progress-bar > div {
+	position: relative;
+	height: 100%;
+}
+
+#progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 7%;
+	height: 100%;
+	border-radius: 30px;
+
+	transition: width .2s;
+	-webkit-transition: width .2s;
+	-moz-transition: width .2s;
+
+	animation-name: progress-animation;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+#progress-text {
+	position: absolute;
+	top: 100%;
+	left: 0;
+
+	width: 100%;
+
+	color: white;
+
+	line-height: 20px;
+	font-size: 14pt;
+	font-weight: bold;
+	font-family: "Lucida Sans Unicode", Sans-serif;
+	text-align: center;
+}
