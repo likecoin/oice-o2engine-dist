@@ -4,7 +4,11 @@ Repository for storing o2engine distribution builds
 
 Currently needs to be manually maintained because lack of CI on our side.
 
-`2.x.x` are novelsphere builds
+Version is defined as `x.x.x-y-z`
+> `x.x.x-y` is version number from novelsphere.js
 
-`3.x.x` are oice builds
+> `z` is the commit hash with prefix `g` or `o`
 
+> `g` are novelsphere builds
+
+> `o` are oice builds
